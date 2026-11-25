@@ -1,0 +1,33 @@
+<div class="p-3">
+  <div class="card">
+    <div class="card-header">Orders</div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>State</th>
+            <th>Products</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (o of orders(); track o.id) {
+            <tr>
+              <td>{{ o.id }}</td>
+              <td>{{ o.date | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ o.state }}</td>
+              <td>{{ o.productItems.length }}</td>
+              <td>
+                <button class="btn btn-success btn-sm" (click)="getOrderDetails(o)">
+                  Order Details
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
